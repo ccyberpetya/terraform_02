@@ -29,6 +29,73 @@ variable "vpc_name" {
 }
 
 
+###task6
+variable "vms_resources" {
+  type = map(object({
+    cores           = number
+    memory          = number
+    core_fraction   = number
+    hdd_size        = number
+    hdd_type        = string
+  }))
+    
+}
+
+variable "metadata" {
+  type = map(string)
+}
+
+
+###task3
+variable "default_zone_b" {
+  type        = string
+  default     = "ru-central1-b"
+  description = "https://cloud.yandex.ru/docs/overview/concepts/geo-scope"
+}
+variable "default_cidr_b" {
+  type        = list(string)
+  default     = ["10.0.2.0/24"]
+  description = "https://cloud.yandex.ru/docs/vpc/operations/subnet-create"
+}
+
+variable "vpc_name_b" {
+  type        = string
+  default     = "develop-b"
+  description = "VPC network & subnet name"
+}
+
+
+###task2
+variable "vm_web_name" {
+  type    = string
+  default = "netology-develop-platform-web"
+}
+
+variable "vm_web_platform_id" {
+  type    = string
+  default = "standard-v3"
+}
+
+#variable "vm_web_cores" {
+#  type    = number
+#  default = 2
+#}
+
+#variable "vm_web_memory" {
+#  type    = number
+#  default = 2
+#}
+
+#variable "vm_web_core_fraction" {
+#  type    = number
+#  default = 20
+#}
+
+variable "vm_web_image_family" {
+  type    = string
+  default = "ubuntu-2004-lts"
+}
+
 ###ssh vars
 
 variable "vms_ssh_public_root_key" {
